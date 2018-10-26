@@ -8,6 +8,13 @@ body {
 	background-image: linear-gradient(to right, gray, white);
 }
 
+h1{
+	text-align: center; 
+	margin-top:5%;
+	margin-bottom: 5%;
+	font-size: 4vw;
+}
+
 ul.topnav {
     list-style-type: none;
     margin: 0;
@@ -45,7 +52,6 @@ ul.topnav li.right {
 	grid-gap: 30px;
 	align-content: center;
 	grid-template-columns: auto auto auto;
-	padding: 0px;
 	margin: 5%;
 }
 .grid-container > div {
@@ -62,7 +68,6 @@ ul.topnav li.right {
 
 
 .grid-container > div > p{
-	margin-top: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
@@ -83,6 +88,15 @@ ul.topnav li.right {
 }
 
 @media screen and (min-width: 1900px){
+	ul.topnav li a {
+		font-size: 2em;
+	    display: block;
+	    color: white;
+	    text-align: center;
+	    padding: 30px 40px;
+	    text-decoration: none;
+	}
+
 	.grid-container{
 		display: grid;
 		grid-gap: 30px;
