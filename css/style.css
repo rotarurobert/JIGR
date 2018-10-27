@@ -88,15 +88,6 @@ ul.topnav li.right {
 }
 
 @media screen and (min-width: 1900px){
-	ul.topnav li a {
-		font-size: 2em;
-	    display: block;
-	    color: white;
-	    text-align: center;
-	    padding: 30px 40px;
-	    text-decoration: none;
-	}
-
 	.grid-container{
 		display: grid;
 		grid-gap: 30px;
