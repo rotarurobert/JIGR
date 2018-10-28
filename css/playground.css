@@ -1,0 +1,29 @@
+ .main {
+  display: grid;
+  height: 100vh;
+  max-width: 90vw;
+  margin: 0 auto;
+  border-radius: 8px;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas: "main"
+                       ;
+  grid-template-rows: 50px minmax(300px,1fr) 1fr;
+}
+
+.item {
+  margin: 4%;
+ 
+  background: #565656;
+}
+
+.menu {
+	margin-top: 3%;
+	margin-left: 3%;
+
+}
+
+button {
+	border-radius: 4px;
+	width: 10%;
+	height: 35px;
+}
