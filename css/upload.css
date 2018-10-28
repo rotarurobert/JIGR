@@ -1,6 +1,6 @@
 .upload-form{
 	display: grid;
-	grid-gap: 30px;
+	grid-gap: 15px;
 	grid-template-columns: auto;
 	max-width: 30%;
 	margin: auto;
@@ -8,24 +8,52 @@
 }
 .upload-form > input{
     padding: 4% 5%;
-    margin: 8px 0;
+    margin: 0px 0px 0px 0px;
     border: 0px solid #ccc;
     box-sizing: border-box;
     font-size: 1.1vw;
+    border-radius: 4px;
+    font-family: Calibri;
+    background-color: #ffffff;
 }
 input[type="file"] {
     display: none;
+}
+
+input[type="submit"] {
+    font-family: Calibri;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+    background-color: #47BDED;
+    margin-top: 50px;
+    max-width: 40%;
 }
 
 .upload-form > label{
     padding: 4%;
     background: red; 
     display: table;
-    color: #fff;
+    color: #4B5056;
     font-size: 1.1vw;
+    border-radius: 4px;
+    font-family: Calibri;
+    background-color: #ffffff;
 }
 .upload-form > label:hover{
-	background-color: green;
+	background-color: #ffffff;
+}
+
+.intro {
+	text-align: center;
+	margin-top: 4%;
+	margin-bottom: 5%;
+	font-size: 1.5vw;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif; 
+	font-size: 1.7vw; 
+	font-weight: 300; 
+	line-height: 20px;
 }
 
 @media screen and (max-width: 600px){
