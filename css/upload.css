@@ -56,6 +56,24 @@ input[type="submit"] {
 	line-height: 20px;
 }
 
+
+#animated-pic {
+	-webkit-animation: rotation 2s infinite linear;
+	margin-left: 2%;
+	margin-right: 10%;
+	margin-bottom: 10%;
+
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
 @media screen and (max-width: 600px){
 	.upload-form{
 		display: grid;
