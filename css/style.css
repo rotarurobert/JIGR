@@ -13,6 +13,28 @@ h1{
 	margin-top:5%;
 	margin-bottom: 5%;
 	font-size: 4vw;
+	font-family: Calibri;
+}
+
+li {
+	font-family: Calibri;
+}
+
+
+.title {
+  display: block;
+  padding: 15px 25px 0px 0px;
+  color: #fff;
+  font-family: Calibri;
+  font-size: 2em;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+
+.title:hover {
+  background: rgba(0, 0, 0, 0);
 }
 
 ul.topnav {
@@ -20,11 +42,17 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #565656;
+    position: fixed;
+    width:100%;
+    top: 0;
 }
 
 ul.topnav li {
 	float: left;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	padding-left: 5px;
 }
 
 ul.topnav li a {
@@ -36,11 +64,13 @@ ul.topnav li a {
 }
 
 ul.topnav li a:hover:not(.active) {
-	background-color: #111;
+	background-color: #4B5056;
+	border-radius: 10px;
 }
 
 ul.topnav li a.active {
-	background-color: #4CAF50;
+	background-color: #B2171E;
+	border-radius: 10px;
 }
 
 ul.topnav li.right {
