@@ -2,7 +2,6 @@
 	display: grid;
 	grid-gap: 30px;
 	grid-template-columns: auto;
-	text-align: center;
 	max-width: 30%;
 	margin: auto;
 	font-family: Calibri;

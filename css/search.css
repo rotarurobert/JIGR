@@ -1,0 +1,16 @@
+input[id="myInput"] {
+  	display: grid;
+	grid-template-columns: auto;
+	margin: auto;
+	font-family: Calibri;
+  	font-size: 2vw;
+  	width: 50%;
+  	border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 600px){
+	input[id="myInput"]{
+		font-size: 4vw;
+	  	width: 90%;
+	}
+}
