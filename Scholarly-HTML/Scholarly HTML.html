@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <title>Scholarly Report for jigr.</title>
+    <link rel="stylesheet" href="./Scholarly HTML — Markedly Smart_files/scholarly.css">
+    <link rel="stylesheet" href="./Scholarly HTML — Markedly Smart_files/prism-coy.css">
+    <script src="./Scholarly HTML — Markedly Smart_files/prism.js.descărcare" defer=""></script>
+    <script type="text/javascript">
+        try {
+            var AG_onLoad = function(func) {
+                if (document.readyState === "complete" || document.readyState === "interactive") func();
+                else if (document.addEventListener) document.addEventListener("DOMContentLoaded", func);
+                else if (document.attachEvent) document.attachEvent("DOMContentLoaded", func)
+            };
+            var AG_removeElementById = function(id) {
+                var element = document.getElementById(id);
+                if (element && element.parentNode) {
+                    element.parentNode.removeChild(element);
+                }
+            };
+            var AG_removeElementBySelector = function(selector) {
+                if (!document.querySelectorAll) {
+                    return;
+                }
+                var nodes = document.querySelectorAll(selector);
+                if (nodes) {
+                    for (var i = 0; i < nodes.length; i++) {
+                        if (nodes[i] && nodes[i].parentNode) {
+                            nodes[i].parentNode.removeChild(nodes[i]);
+                        }
+                    }
+                }
+            };
+            var AG_each = function(selector, fn) {
+                if (!document.querySelectorAll) return;
+                var elements = document.querySelectorAll(selector);
+                for (var i = 0; i < elements.length; i++) {
+                    fn(elements[i]);
+                };
+            };
+            var AG_removeParent = function(el, fn) {
+                while (el && el.parentNode) {
+                    if (fn(el)) {
+                        el.parentNode.removeChild(el);
+                        return;
+                    }
+                    el = el.parentNode;
+                }
+            };
+        } catch (ex) {
+            console.error('Error executing AG js: ' + ex);
+        }
+    </script>
+</head>
+
+<body prefix="">
+    <header>
+          <h1>JIGR (Jigsaw Web Manager) - Scholarly Report</h1>
+
+    </header>
+    <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+
+        <section>
+            <ol>
+                <li property="schema:author" typeof="sa:ContributorRole">
+                    <a property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Andreea</span>
+                        <span property="schema:familyName">Pantiruc</span>
+                    </a>
+
+                    <ul>
+          <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+            <a href="mailto:andreea.pantiruc@info.uaic.ro"
+               property="schema:email">andreea.pantiruc@info.uaic.ro</a>
+          </li>
+
+        </ul>
+            </sup>
+                </li>
+                <li property="schema:contributor" typeof="sa:ContributorRole">
+                    <a property="schema:contributor" typeof="schema:Person">
+                        <span property="schema:givenName">Robert Tiberiu</span>
+                        <span property="schema:familyName">Rotaru</span>
+                    </a>
+                    <ul>
+        <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+          <a href="mailto:robert.rotaru@info.uaic.ro"
+             property="schema:email">robert.rotaru@info.uaic.ro</a>
+        </li>
+      </ul>
+
+                </li>
+            </ol>
+            <ul>
+                <li id="scienceai">
+                    <a href="https://www.info.uaic.ro" typeof="schema:Corporation">
+                        <span property="schema:name">Faculty of Computer Science</span>
+                        <span property="schema:location" typeof="schema:Place">General Berthelot 16
+                        <span property="schema:address" typeof="schema:PostalAddress">700483,
+                          <span property="schema:addressLocality">Iasi</span>,
+                          <span property="schema:addressCountry">Romania</span>
+                        </span>
+        </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section typeof="sa:Abstract" id="abstract">
+            <h2>Abstract</h2>
+            <p>
+A jigsaw puzzle is a tiling puzzle that requires the assembly of often oddly shaped interlocking and tessellating pieces. Each piece usually has a small part of a picture on it; when complete, a jigsaw puzzle produces a complete picture.
+            </p>
+            <h2>Key Words</h2>
+            <p>
+               puzzle, game, project, infoiasi, cliw, web
+            </p>
+        </section>
+        <section typeof="sa:MaterialsAndMethods" id="motivation">
+            <h2>Project description / Motivation</h2>
+            <aside typeof="schema:WPSideBar">
+                <p>
+                    Join our team on
+                    <a href="https://github.com/georgianaursachi/DAWNC">jigr.</a> and help us develop it.
+                </p>
+
+            </aside>
+            <p>
+              JIGR is a web application designed to solve puzzles proposed by the program or defined by users. Each player is
+            able to select - either locally or remotely via a URL - an image (in PNG and JPEG formats) that will be cropped at runtime into fragments as complicated as possible using rules
+            based on generative grammars (rectangular divisions being excluded). The pieces are mixed and the shifts/swings are performed via drag & drop operations. Once a fragment is moved near or almost near to its correct piece, the application provides support for snap placement
+            in the right area. The current status of each puzzle can be saved locally with the possibility of subsequent restoration.<br><br>
+            </p>
+
+
+
+        </section>
+        <section typeof="sa:Results" id="definition">
+            <h2>Used technologies</h2>
+
+            <h3>HTML5/CSS3</h3>
+            <p>
+                Hypertext Markup Language revision 5 (HTML5) is markup language for the structure and presentation of World Wide Web contents. HTML5 supports the traditional HTML and XHTML-style syntax and other new features in its markup, New APIs, XHTML and error handling.
+            </p>
+
+            <p>
+                CSS3 makes changes to how some visual elements are implemented and rendered by a browser. However, it is not a single hugely unwieldy specification, unlike CSS2. CSS3 is separated into separate modules to facilitate development. This means that the specification comes out in chunks, with more stable modules than others.
+            </p>
+
+
+            <section id="file-headers">
+                <h2>Application Architecture</h2>
+                <h3>Front-end</h3>
+                <p>Built with CSS and HTML, application's interface has four pages, the third one being almost the same as the home page. It is ilustrated by the scheme below:</p>
+                <center><img alt="front-end" src="./Scholarly-HTML/page-one.png"></center>
+                <center><img alt="front-end" src="./Scholarly-HTML/page-one.png"></center>
+                <center><img alt="front-end" src="./Scholarly-HTML/page-one.png"></center>
+
+            <section id="hunk-elements">
+                <h2>Interaction with users</h2>
+
+            </section>
+        </section>
+
+    </article>
+    <footer>
+        <p>
+            <a href="https://github.com/rotarurobert/JIGR">Developing client-side web applications PROJECT.</a>
+
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
