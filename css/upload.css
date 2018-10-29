@@ -59,9 +59,9 @@ input[type="submit"] {
 
 #animated-pic {
 	-webkit-animation: rotation 2s infinite linear;
-	margin-left: 2%;
+	margin-left: 3%;
 	margin-right: 10%;
-	margin-bottom: 10%;
+	margin-bottom: 0%;
 
 }
 

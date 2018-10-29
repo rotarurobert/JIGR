@@ -55,10 +55,10 @@ li {
 .title {
 	text-align-last: center;
 	display: inline-block;
-	padding: 0px 35px px 0px;
+	padding: 0px 35px 1px 0px;
 	color: #fff;
 	font-family: Calibri;
-	font-size: 2.6em;
+	font-size: 2.2em;
 	letter-spacing: 1px;
 	text-decoration: none;
 	text-transform: lowercase;
@@ -81,8 +81,8 @@ ul.topnav {
 }
 ul.topnav li {
 	float: left;
-	padding-top: 7px;
-	padding-bottom: 1px;
+	padding-top: 5px;
+	
 	padding-left: 5px;
 
 }
