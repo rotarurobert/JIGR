@@ -26,7 +26,7 @@ input[type="submit"] {
     color: #000;
     font-weight: bold;
     background-color: #47BDED;
-    margin-top: 50px;
+    margin-top: 0px;
     max-width: 40%;
 }
 
@@ -54,6 +54,11 @@ input[type="submit"] {
 	font-size: 1.7vw; 
 	font-weight: 300; 
 	line-height: 20px;
+}
+
+span {
+	font-family: Calibri;
+	font-size: 15px;
 }
 
 
