@@ -32,7 +32,7 @@ input[type="submit"] {
 
 .upload-form > label{
     padding: 4%;
-    background: red; 
+    background: red;
     display: table;
     color: #4B5056;
     font-size: 1.1vw;
@@ -50,9 +50,9 @@ input[type="submit"] {
 	margin-bottom: 2%;
 	font-size: 1.5vw;
 	color: #fff;
-	font-family: 'Open Sans', sans-serif; 
-	font-size: 1.7vw; 
-	font-weight: 300; 
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.7vw;
+	font-weight: 300;
 	line-height: 20px;
 }
 
@@ -64,9 +64,10 @@ span {
 
 #animated-pic {
 	-webkit-animation: rotation 2s infinite linear;
-	margin-left: 3%;
+	margin-left: 5%;
 	margin-right: 10%;
 	margin-bottom: 0%;
+	margin-top: 18%;
 
 }
 
