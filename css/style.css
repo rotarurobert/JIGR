@@ -149,6 +149,81 @@ ul.topnav li.right {
 	margin-top: 5px;
 }
 
+.container {
+			 width: 500px;
+			 height: 500px;
+			 margin: 0 auto;
+			 border: 1px solid black;
+			 padding: 0px;
+			 display: block;
+			 background-color: white;
+			 overflow: hidden;
+			 position: relative;
+			 margin-top: 100px;
+
+	 }
+
+ .container2 {
+	 			 width: 500px;
+	 			 height: 500px;
+	 			 margin: 0 auto;
+	 			 border: 1px solid black;
+	 			 padding: 0px;
+	 			 display: block;
+	 			 background-color: white;
+	 			 overflow: hidden;
+	 			 position: relative;
+				 margin-top: 100px;
+	 	 }
+
+
+	 .pieseContainer {
+			 width: 500px;
+			 height: 200px;
+			 padding: 0px;
+			 border: 1px solid black;
+			 margin: 10px auto;
+			 display: block;
+
+	 }
+
+	 .piesa1 {
+			 display: inline-block;
+
+			 margin: 0px;
+			 margin-bottom: -4px;
+			 border-bottom: 50px solid blue;
+			 border-left: 20px solid transparent;
+			 border-right: 20px solid transparent;
+			 height: 0;
+			 width: 50px;
+			 z-index: 2;
+
+
+	 }
+
+	 .piesa2 {
+			 display: inline-block;
+
+			 margin: 0px;
+			 margin-bottom: -4px;
+			 border-top: 50px solid red;
+			 border-left: 20px solid transparent;
+			 border-right: 20px solid transparent;
+			 height: 0;
+			 width: 50px;
+			 z-index: 2;
+
+
+	 }
+
+	 .piesa1,
+	 .piesa2 {
+			 margin-left: -6px;
+			 position: absolute;
+			 box-sizing: border-box;
+	 }
+
 
 @media only screen and (max-width: 600px){
     ul.topnav li.right,
