@@ -1,11 +1,21 @@
  .main {
   display: grid;
+  height: 100vh;
+  max-width: 80vw;
+  max-height: 80vw;
   border-radius: 8px;
   grid-template-columns: 300px 1fr;
   grid-template-areas: "main";
   grid-template-rows: 50px minmax(300px,1fr) 1fr;
 }
 
+.item {
+  margin-top: 4%;
+  margin-left: 20%;
+  margin-right: 10%;
+
+  background: #565656;
+}
 
 .menu {
 	margin-top: 15%;
