@@ -66,9 +66,7 @@ span {
 	-webkit-animation: rotation 2s infinite linear;
 	margin-left: 5%;
 	margin-right: 10%;
-	margin-bottom: 0%;
-	margin-top: 18%;
-
+	margin-bottom: 10%;
 }
 
 @-webkit-keyframes rotation {
