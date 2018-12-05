@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <title>Scholarly Report for jigr - Application Architecture</title>
+    <link rel="stylesheet" href="./scholarly.css">
+
+
+
+</head>
+
+<body prefix="">
+    <header>
+          <h1>JIGR (Jigsaw Web Manager) - Scholarly Report: Application Architecture</h1>
+
+    </header>
+    <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+
+        <section>
+            <ol>
+                <li property="schema:author" typeof="sa:ContributorRole">
+                    <a property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Andreea</span>
+                        <span property="schema:familyName">Pantiruc</span>
+                    </a>
+
+                    <ul>
+                      <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                        <a href="mailto:andreea.pantiruc@info.uaic.ro" property="schema:email">andreea.pantiruc@info.uaic.ro</a>
+                      </li>
+                    </ul>
+
+                </li>
+
+                <li property="schema:contributor" typeof="sa:ContributorRole">
+                    <a property="schema:contributor" typeof="schema:Person">
+                        <span property="schema:givenName">Robert Tiberiu</span>
+                        <span property="schema:familyName">Rotaru</span>
+                    </a>
+                    <ul>
+                      <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                        <a href="mailto:robert.rotaru@info.uaic.ro" property="schema:email">robert.rotaru@info.uaic.ro</a>
+                      </li>
+                    </ul>
+
+                </li>
+            </ol>
+            <ul>
+                <li id="scienceai">
+                    <a href="https://www.info.uaic.ro" typeof="schema:Corporation">
+                        <span property="schema:name">Faculty of Computer Science</span>
+                        <span property="schema:location" typeof="schema:Place">General Berthelot 16
+                        <span property="schema:address" typeof="schema:PostalAddress">700483,
+                          <span property="schema:addressLocality">Iasi</span>,
+                          <span property="schema:addressCountry">Romania</span>
+                        </span>
+        </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section typeof="sa:Abstract" id="abstract">
+            <h2>Abstract:</h2>
+            <p>
+A jigsaw puzzle is a tiling puzzle that requires the assembly of often oddly shaped interlocking and tessellating pieces. Each piece usually has a small part of a picture on it; when complete, a jigsaw puzzle produces a complete picture.
+            </p>
+
+        </section>
+        <section typeof="sa:MaterialsAndMethods" id="motivation">
+            <h2>Project description / Motivation</h2>
+            <aside typeof="schema:WPSideBar">
+                <p>
+                    Join our team on
+                    <a href="https://github.com/rotarurobert/JIGR">jigr.</a> and help us develop it.
+                </p>
+
+            </aside>
+            <p>
+              JIGR is a web application designed to solve puzzles proposed by the program or defined by users. Each player is
+            able to select - either locally or remotely via a URL - an image (in PNG and JPEG formats) that will be cropped at runtime into fragments as complicated as possible using rules
+            based on generative grammars (rectangular divisions being excluded). The pieces are mixed and the shifts/swings are performed via drag & drop operations. Once a fragment is moved near or almost near to its correct piece, the application provides support for snap placement
+            in the right area. The current status of each puzzle can be saved locally with the possibility of subsequent restoration.<br><br>
+            </p>
+
+
+
+        </section>
+        <section typeof="sa:Results" id="definition">
+            <h2>Used technologies</h2>
+
+            <h3>JavaScript</h3>
+            <p>We have created the application's interface using basic HTML5 and CSS basics, but javascript represents the core of the project. As technology, JavaScript® (often shortened to JS) is a lightweight, interpreted, object-oriented language with first-class functions, and is best known as the scripting language for Web pages, but it's used in many non-browser environments as well. It is a prototype-based, multi-paradigm scripting language that is dynamic, and supports object-oriented, imperative, and functional programming styles.
+            JavaScript runs on the client side of the web, which can be used to design / program how the web pages behave on the occurrence of an event. JavaScript is an easy to learn and also powerful scripting language, widely used for controlling web page behaviour.
+
+
+            </p>
+
+
+            <section id="file-headers">
+                <h2>Application Architecture</h2>
+                <h3>Front-end</h3>
+                <p>Built with CSS and HTML, application's interface has four pages, the third one being almost the same as the home page.</p>
+                <img width="270" alt="page-one" src="./page-one.png" style="width:270px;">
+                <img width="270" alt="page-two" src="./page-two.png" style="width:270px;">
+                <img width="270" alt="page-four" src="./page-three.png" style="width:270px;">
+
+
+            <section id="hunk-elements">
+                <h3>Back-end</h3>
+                <p></p>
+                <h2>Interaction with users</h2>
+                <ul>
+                  <li>Players are welcomed by the home page, where it shows them the option of choosing a default puzzle and redirect them to Playground or go to the next page, 'Upload' to make a puzzle with their own favourite image.</li>
+                  <li>Second page has a simple form for upload that also takes the users to Playground page once the picture is submitted.</li>
+                  <li>On Search tab, users can scroll through all puzzles or search for a specific one.</li>
+                  <li>Playground displays the game, having an easy menu on the right side consisting of below options:
+                    <ol>
+                      <li>Play - to start the game</li>
+                      <li>Preview image - to see again the picture that needs to be assembled as orientation for solving</li>
+                      <li>Save and resume later</li>
+                      <li>Reset - to its initial game state</li>
+                    </ol>
+                </ul>
+                <h3>The idea behind the code</h3>
+                <p>After uploading a picture or choosing one by default, the first thing the game's algorithm does
+is saving image proprieties like width and height into two variables that will be used when
+setting the configuration of the puzzle together with number and width of tiles wanted.<br><br>
+
+
+Using this set of data, we create the pieces of the puzzle as in a array to simplify the work
+that will follow. Next step is dividing the picture into shapes. Each shape has a mask that creates the edges of a tile
+and by using a raster we assign to it a specific part of the initial picture. In the end, the initial array will consist
+all of puzzle pieces.<br><br>
+
+The tiles will display each time in a random way and each two will have a space between them in order for them to be easy
+to observe. At the end, the function called "checkTiles" checkes each tile to see if it has been placed on the its initial
+position and if the resulted array it's in order.<br><br>
+
+Anytime, players can press on "Preview image" that will display the initial puzzle image in order to help them resolve it.
+Following function switches between puzzle image and puzzle itself.<br><br>
+<code>
+var canvas = document.getElementById("canvas");<br>
+var puzzle_test = document.getElementById("puzzle-image");<br><br>
+
+function preview () {<br>
+	if ( canvas.style.display === 'none' ) {<br>
+		canvas.style.display = '';<br>
+		puzzle_test.style.display = 'none'; <br>
+	}<br>
+	else { canvas.style.display = 'none';<br>
+				 puzzle_test.style.display = '';   <br>
+	}
+}</code>
+</p>
+
+            </section>
+
+            <section id="hunk-elements">
+                <h2>Effective team work with GitHub</h2>
+                <p>GitHub Inc. is a web-based hosting service for version control using Git. It is mostly used for computer code. It offers all of the distributed version control and source code management (SCM) functionality of Git as well as adding its own features. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.</p>
+
+                <p>We chose to work with github mainly because it's easy and quick to sync when using desktop version plus, we had the option to track our progress and divide tasks in order to be effective as a team.</p>
+
+            </section>
+
+
+
+        </section>
+
+    </article>
+    <footer>
+        <p>
+            <a href="https://github.com/rotarurobert/JIGR">Developing client-side web applications PROJECT.</a>
+
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
