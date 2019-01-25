@@ -1,0 +1,98 @@
+.upload-form{
+	display: grid;
+	grid-gap: 15px;
+	grid-template-columns: auto;
+	max-width: 30%;
+	margin: auto;
+	font-family: Calibri;
+}
+.upload-form > input{
+    padding: 4% 5%;
+    margin: 0px 0px 0px 0px;
+    border: 0px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1.1vw;
+    border-radius: 4px;
+    font-family: Calibri;
+    background-color: #ffffff;
+}
+input[type="file"] {
+    display: none;
+}
+
+input[type="submit"] {
+    font-family: Calibri;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+    background-color: #47BDED;
+    margin-top: 0px;
+    max-width: 40%;
+}
+
+.upload-form > label{
+    padding: 4%;
+    background: red;
+    display: table;
+    color: #4B5056;
+    font-size: 1.1vw;
+    border-radius: 4px;
+    font-family: Calibri;
+    background-color: #ffffff;
+}
+.upload-form > label:hover{
+	background-color: #ffffff;
+}
+
+.intro {
+	text-align: center;
+	margin-top: 6%;
+	margin-bottom: 2%;
+	font-size: 1.5vw;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.7vw;
+	font-weight: 300;
+	line-height: 20px;
+}
+
+span {
+	font-family: Calibri;
+	font-size: 15px;
+}
+
+
+#animated-pic {
+	-webkit-animation: rotation 2s infinite linear;
+	margin-left: 5%;
+	margin-right: 10%;
+	margin-bottom: 0%;
+	margin-top: 18%;
+
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
+@media screen and (max-width: 600px){
+	.upload-form{
+		display: grid;
+		grid-gap: 30px;
+		grid-template-columns: auto;
+		text-align: center;
+		max-width: 80%;
+		margin: auto;
+	}
+	.upload-form > input{
+		font-size: 2vw;
+	}
+	.upload-form > label{
+		font-size: 2vw;
+	}
+}
