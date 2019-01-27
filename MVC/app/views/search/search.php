@@ -23,12 +23,7 @@
 	<input type="text" id="myInput" onkeyup="myFunction()" placeholder=" Search for names.." title="Type in a name">
 
 	<div class="grid-container" id = "myGrid">
-	  <div><a href="./images/1.jpg"><img alt="1" src="./images/1.jpg"></a><p>Moonlight</p></div>
-	  <div><a href="./images/2.jpg"><img alt="2" src="./images/2.png"></a><p>Full Universe</p></div>
-	  <div><a href="./images/3.jpg"><img alt="3" src="./images/3.jpg"></a><p>Over the Hills</p></div>
-	  <div><a href="./images/4.jpg"><img alt="4" src="./images/4.jpg"></a><p>Sunset from Amsterdam</p></div>
-	  <div><a href="./images/5.jpg"><img alt="5" src="./images/5.jpg"></a><p>Underwater World</p></div>
-	  <div><a href="./images/6.png"><img alt="6" src="./images/6.jpg"></a><p>To.. Venice!</p></div>
+	  <?php searchModel::items(); ?>
 	</div>
 </body>
 

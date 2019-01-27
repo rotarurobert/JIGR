@@ -1,208 +1,58 @@
 <?php
 
-class Mai{
-  public static function getEndTodayData(){
+class UploadModel{
 
-        $EndTodayData['end_today1name'] = self::getEndTodayName1();
-        $EndTodayData['end_today2name'] = self::getEndTodayName2();
-        $EndTodayData['end_today3name'] = self::getEndTodayName3();
-        $EndTodayData['end_today4name'] = self::getEndTodayName4();
-        $EndTodayData['end_today5name'] = self::getEndTodayName5();
-
-        $EndTodayData['end_today1price'] = self::getEndTodayPrice1();
-        $EndTodayData['end_today2price'] = self::getEndTodayPrice2();
-        $EndTodayData['end_today3price'] = self::getEndTodayPrice3();
-        $EndTodayData['end_today4price'] = self::getEndTodayPrice4();
-        $EndTodayData['end_today5price'] = self::getEndTodayPrice5();
-
-    
-        return $EndTodayData;
-
-    }
-
-    private static function getEndTodayName1(){
-          require_once '../app/core/DB.php';
-
-          $database = DB::getConnection();
-          $query="SELECT name FROM products WHERE
-                  extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                  extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                  extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 0,1";
-          $stmt=$database->prepare($query);
-          $stmt->execute();
-          $stmt->bind_result($end_today1);
-          $stmt->fetch();
-
-              return $end_today1;
-
-          $stmt->close();
-      }
-
-      private static function getEndTodayName2(){
-            require_once '../app/core/DB.php';
-
-            $database = DB::getConnection();
-            $query="SELECT name FROM products WHERE
-                    extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                    extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                    extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 1,1";
-            $stmt=$database->prepare($query);
-            $stmt->execute();
-            $stmt->bind_result($end_today2);
-            $stmt->fetch();
-
-              return $end_today2;
-
-            $stmt->close();
-        }
-
-        private static function getEndTodayName3(){
-              require_once '../app/core/DB.php';
-
-              $database = DB::getConnection();
-              $query="SELECT name FROM products WHERE
-                      extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                      extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                      extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 2,1";
-              $stmt=$database->prepare($query);
-              $stmt->execute();
-              $stmt->bind_result($end_today3);
-              $stmt->fetch();
-
-              return $end_today3;
-
-              $stmt->close();
-          }
-
-          private static function getEndTodayName4(){
-                require_once '../app/core/DB.php';
-
-                $database = DB::getConnection();
-                $query="SELECT name FROM products WHERE
-                        extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                        extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                        extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 3,1";
-                $stmt=$database->prepare($query);
-                $stmt->execute();
-                $stmt->bind_result($end_today4);
-                $stmt->fetch();
-
-                return $end_today4;
-
-                $stmt->close();
-            }
-
-
-            private static function getEndTodayName5(){
-                  require_once '../app/core/DB.php';
-
-                  $database = DB::getConnection();
-                  $query="SELECT name FROM products WHERE
-                          extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                          extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                          extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 4,1";
-                  $stmt=$database->prepare($query);
-                  $stmt->execute();
-                  $stmt->bind_result($end_today5);
-                  $stmt->fetch();
-
-                  return $end_today5;
-
-                  $stmt->close();
-
-              }
-              private static function getEndTodayPrice1(){
-                    require_once '../app/core/DB.php';
-
-                    $database = DB::getConnection();
-                    $query="SELECT start_price FROM products WHERE
-                            extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                            extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                            extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 0,1";
-                    $stmt=$database->prepare($query);
-                    $stmt->execute();
-                    $stmt->bind_result($end_today1price);
-                    $stmt->fetch();
-
-                        return $end_today1price;
-
-                    $stmt->close();
+        public function upload(){
+                if(isset($_POST["submit"])) {
+                        ob_end_clean();
+                        $target_dir = "./images/";
+                        $target_file = $target_dir . basename($_FILES["pic"]["name"]);
+                        $uploadOk = 1;
+                        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                        // Check if image file is a actual image or fake image
+                        $check = getimagesize($_FILES["pic"]["tmp_name"]);
+                        if($check !== false) {
+                                $uploadOk = 1;
+                        } else {
+                                echo '<script>alert("File is not an image.");</script>';
+                                $uploadOk = 0;
+                                }
+                                // Check if file already exists
+                                if (file_exists($target_file)) {
+                                        echo '<script>alert("Sorry, file already exists.");</script>';
+                                        $uploadOk = 0;
+                                }
+                                // Check file size
+                                if ($_FILES["pic"]["size"] > 500000) {
+                                        echo '<script>alert("Sorry, your file is too large.");</script>';
+                                        $uploadOk = 0;
+                                }
+                                // Allow certain file formats
+                                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                                && $imageFileType != "gif" ) {
+                                        echo '<script>alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");</script>';
+                                        $uploadOk = 0;
+                                }
+                                // Check if $uploadOk is set to 0 by an error
+                                if ($uploadOk == 0) {
+                                        echo '<script>alert("Sorry, your file was not uploaded.");</script>';
+                                // if everything is ok, try to upload file
+                                } else {
+                                        if (move_uploaded_file($_FILES["pic"]["tmp_name"], $target_file)) {
+                                                require_once '../app/core/DB.php';
+                                                $database = DB::getConnection();
+                                                $sql = "INSERT INTO images (image_name, name) VALUES ('".$_POST["picName"]."', '".basename($_FILES["pic"]["name"])."')";
+                                                if ($database->query($sql) === TRUE) {
+                                                        echo '<script>alert("The file '. basename( $_FILES["pic"]["name"]). ' has been uploaded.");</script>';
+                                                }
+                                                $database->close();
+                                                
+                                                
+                                        } else {
+                                                echo '<script>alert("Sorry, there was an error uploading your file.");</script>';
+                                        }
+                                }
                 }
-
-                private static function getEndTodayPrice2(){
-                      require_once '../app/core/DB.php';
-
-                      $database = DB::getConnection();
-                      $query="SELECT start_price FROM products WHERE
-                              extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                              extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                              extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 1,1";
-                      $stmt=$database->prepare($query);
-                      $stmt->execute();
-                      $stmt->bind_result($end_today2price);
-                      $stmt->fetch();
-
-                        return $end_today2price;
-
-                      $stmt->close();
-                  }
-
-                  private static function getEndTodayPrice3(){
-                        require_once '../app/core/DB.php';
-
-                        $database = DB::getConnection();
-                        $query="SELECT start_price FROM products WHERE
-                                extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                                extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                                extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 2,1";
-                        $stmt=$database->prepare($query);
-                        $stmt->execute();
-                        $stmt->bind_result($end_today3price);
-                        $stmt->fetch();
-
-                        return $end_today3price;
-
-                        $stmt->close();
-                    }
-
-                    private static function getEndTodayPrice4(){
-                          require_once '../app/core/DB.php';
-
-                          $database = DB::getConnection();
-                          $query="SELECT start_price FROM products WHERE
-                                  extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                                  extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                                  extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 3,1";
-                          $stmt=$database->prepare($query);
-                          $stmt->execute();
-                          $stmt->bind_result($end_today4price);
-                          $stmt->fetch();
-
-                          return $end_today4price;
-
-                          $stmt->close();
-                      }
-
-
-                      private static function getEndTodayPrice5(){
-                            require_once '../app/core/DB.php';
-
-                            $database = DB::getConnection();
-                            $query="SELECT start_price FROM products WHERE
-                                    extract(day FROM enddate) = extract(day FROM sysdate()) AND
-                                    extract(month FROM enddate) = extract(month FROM sysdate()) AND
-                                    extract(year FROM enddate) = extract(year FROM sysdate()) ORDER BY start_price LIMIT 4,1";
-                            $stmt=$database->prepare($query);
-                            $stmt->execute();
-                            $stmt->bind_result($end_today5price);
-                            $stmt->fetch();
-
-                            return $end_today5price;
-
-                            $stmt->close();
-
-                        }
-
-          
+        }
 
 }
