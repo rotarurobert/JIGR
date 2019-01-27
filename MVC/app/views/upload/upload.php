@@ -15,10 +15,10 @@ UploadModel::upload();
 <body>
 <ul class="topnav">
 	  <li><img alt="logo" src="./images/puzzle-logo.jpg"><p class="title">jigr.</p></li>
-	  <li><a href="http://<?php echo $_SERVER['HTTP_HOST']?>/MVC/public/main">Home</a></li>
-	  <li><a class="active" href="http://<?php echo $_SERVER['HTTP_HOST']?>/MVC/public/upload">Upload</a></li>
-	  <li><a href="http://<?php echo $_SERVER['HTTP_HOST']?>/MVC/public/search">Search</a></li>
-	  <li><a href="http://<?php echo $_SERVER['HTTP_HOST']?>/MVC/public/playground">Playground</a></li>
+	  <li><a href="/MVC/public/main">Home</a></li>
+	  <li><a class="active" href="/MVC/public/upload">Upload</a></li>
+	  <li><a href="/MVC/public/search">Search</a></li>
+	  <li><a href="/MVC/public/playground">Playground</a></li>
 	</ul>
 	<div class="intro">
 		<p>Choose your favourite picture and let us puzzle it for you!</p><br>

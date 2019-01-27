@@ -10,7 +10,7 @@ class mainModel{
 
                 if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
-                                echo '<div><a href="./images/'.$row['name'].'"><img alt="1" src="./images/'.$row['name'].'"></a><p>'.$row['image_name'].'</p></div>';
+                                echo '<div><a href="/MVC/public/playground?image='.$row['name'].'"><img alt="1" src="./images/'.$row['name'].'"></a><p>'.$row['image_name'].'</p></div>';
                 }
                 } else {
                         echo "0 results";
