@@ -4,7 +4,7 @@ class searchModel{
         public static function items(){
                 require_once '../app/core/DB.php';
                 $database = DB::getConnection();
-                $sql = "SELECT * FROM images";
+                $sql = "SELECT * FROM images ORDER BY image_name";
                 $result = mysqli_query($database, $sql);
 
                 if (mysqli_num_rows($result) > 0) {

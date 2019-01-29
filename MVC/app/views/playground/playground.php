@@ -5,10 +5,9 @@
 <title>jigr.</title>
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/playground.css">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
+<script src="./script/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="./script/paper.js" type="text/javascript"></script>
+<script src="./script/playground.js" type="text/paperscript" canvas="canvas"></script>
 </head>
 
 <body>
@@ -26,12 +25,9 @@
 	 	<button>Save & Resume later</button>
  	</div>
     <div class="item main">
-			<div class="container">Loading...
-			</div>
-			<div class="container2">
-				<?php playgroundModel::image(); ?>
-			</div>
+		<canvas id="canvas" class="canvas" resize></canvas>
+		<img id="puzzle-image" style="display: none;"class="puzzle-image"  src="./images/<?php echo $_GET['image'] ?>" />
+		<img id="empty" style="display: none;"src="./images/empty.png" />
  	</div>
 </body>
-<script src="./script/blocks.js"></script>
 </html>
