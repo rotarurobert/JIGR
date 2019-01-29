@@ -14,10 +14,9 @@ Array.prototype.remove = function(start, end) {
         var config = ({
             zoomScaleOnDrag: 1.125,
             imgName: 'puzzle-image',
-            imgWidth: imgWidth,
-            tileWidth: imgWidth/25,
-            tilesPerRow: 20,
-            tilesPerColumn: 16,
+            tileWidth: 50,
+            tilesPerRow: 10,
+            tilesPerColumn: 8,
             imgWidth: imgWidth,
             imgHeight: imgHeight,
             shadowWidth: 120
@@ -519,7 +518,7 @@ Array.prototype.remove = function(start, end) {
 
                 return errors;
             }
-            console.log(this.tiles);
+            //console.log(this.tiles);
         }
 
 
