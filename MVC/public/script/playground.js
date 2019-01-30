@@ -7,54 +7,58 @@ Array.prototype.remove = function(start, end) {
         var scrollVector = new Point(0,0);
         var scrollMargin = 32;
 
+        var imgWidth = document.getElementById("puzzle-image").width ;
+        var imgHeight = document.getElementById("puzzle-image").height;
 
-        var imgWidth = $('.puzzle-image').css('width').replace('px', '');
-        var imgHeight = $('.puzzle-image').css('height').replace('px', '');
         //setari pentru puzzle : numar piese rand/coloana,dimensiunea piesei, dimensiunea imaginii dupa care sa se faca puzelul
+        var tileWidth = 50;
+
         var config = ({
             zoomScaleOnDrag: 1.125,
             imgName: 'puzzle-image',
-            tileWidth: 50,
+            tileWidth: tileWidth,
             tilesPerRow: 10,
             tilesPerColumn: 8,
-            imgWidth: imgWidth,
-            imgHeight: imgHeight,
+            imgWidth: Math.floor(imgWidth/tileWidth)*tileWidth,
+            imgHeight: Math.floor(imgHeight/tileWidth)*tileWidth,
             shadowWidth: 120
         });
         //cream entitatea puzzle dupa configul creat mai sus
         var puzzle = new Html5Puzzle(config);
+        console.log(puzzle);
         //setam un zoom default pentru a se incadra mai bine in containerul nostru
         puzzle.zoom(-.3);
         var path;
         var movePath = false;
 
-        $('.zoomIn').click(function() {
-            puzzle.zoom(.1);
-        });
 
-
-        $('.zoomOut').click(function() {
-            puzzle.zoom(-.1);
-        });
-
-
-        //functie care afiseaza imaginea folosita in puzzle
-        $('.preview').mousedown( function() {
-            if ($('.canvas').css('display') == 'none') {
-                $('.canvas').show();
-                $('.puzzle-image').hide();
-                $('.logo').hide();
+        document.getElementById("preview").addEventListener("click", function previewImage(){
+            var image = document.getElementById("puzzle-image");
+            var canvas = document.getElementById("canvas");
+            var grid = document.getElementsByClassName("item main");
+            console.log(grid[0].clientWidth);
+            if(canvas.style.display === "none"){
+                canvas.style.display = "block";
+                image.style = '';
+                image.style.display = "none";
             }
-            else {
-                $('.canvas').hide();
-                $('.puzzle-image').show();
-                $('.logo').show();
+            else{
+                canvas.style.display = "none";
+                image.style.display = "block";
+                image.style.marginLeft = String(grid[0].clientWidth/2 - imgWidth/2) + "px" ;
+                image.style.marginTop = String(grid[0].clientHeight - imgHeight/2) + "px";
             }
         });
 
 
-        $('.puzzle-image').css('margin', '-' + imgHeight/2 + 'px 0 0 -' + imgWidth/2 + 'px');
+        document.getElementById("reset").addEventListener("click", function resetGame(){
+            location.reload();
+        });
 
+
+
+
+        
 
         //setam un event pentru cand dam click pe piesa
         function onMouseDown(event) {
@@ -518,28 +522,6 @@ Array.prototype.remove = function(start, end) {
 
                 return errors;
             }
-            //console.log(this.tiles);
+            console.log(this.tiles);
         }
 
-
-        
-        //function readURL(input) {
-        //  $('.preview').show();
-        //  $('#puzzle-image').hide();
-        //  $('.preview').after('<img id="puzzle-image" src="./images/puzzle/poza.jpg" alt="your image" style="display:none;"/>');
-        //  if (input.files && input.files[0]) {
-          //    var reader = new FileReader();
-            //  reader.onload = function (e) {
-            //    $('#puzzle-image')
-//.attr('src', e.target.result)
-            //    .width(150)
-            //    .height(200);
-            //  };
-            //  reader.readAsDataURL(input.files[0]);
-          //  }
-          //}
-
-        //  function getPreview() {
-          //  $('.preview').hide();
-          //  $('#puzzle-image').show();
-        //  }

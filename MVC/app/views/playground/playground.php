@@ -19,15 +19,14 @@
 	  <li><a class="active" href="/MVC/public/playground">Playground</a></li>
 	</ul>
 	<div class="menu">
-	 	<button onclick="drawPiesa();">Play</button>
-	 	<button>Preview image</button>
-	 	<button>Reset</button>
+	 	<button id = "preview">Preview image</button>
+	 	<button id = "reset">Reset</button>
 	 	<button>Save & Resume later</button>
  	</div>
     <div class="item main">
 		<canvas id="canvas" class="canvas" resize></canvas>
-		<img id="puzzle-image" style="display: none;"class="puzzle-image"  src="./images/<?php echo $_GET['image'] ?>" />
-		<img id="empty" style="display: none;"src="./images/empty.png" />
+		<img id="puzzle-image" style="display: none;" src="./images/<?php echo $_GET['image'] ?>" />
+		<img width = "128px" height = "128px" id="empty" style="display: none;"src="./images/empty.png" />
  	</div>
 </body>
 </html>

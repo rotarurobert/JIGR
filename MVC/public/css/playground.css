@@ -1,9 +1,7 @@
  .main {
   display: grid;
   border-radius: 8px;
-  grid-template-columns: 300px 1fr;
   grid-template-areas: "main";
-  grid-template-rows: 50px minmax(300px,1fr) 1fr;
 }
 
 
@@ -15,6 +13,7 @@
   display: grid;
   grid-template-columns: auto;
 }
+
 
 button {
   margin-bottom: 15px;
