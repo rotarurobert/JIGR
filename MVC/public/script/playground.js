@@ -56,6 +56,13 @@ Array.prototype.remove = function(start, end) {
         });
 
 
+        document.getElementById("save").addEventListener("click", function saveGame(){
+            for (i = 0 ; i< puzzle.tiles.length; i++){
+                localStorage.setItem(i, JSON.stringify(puzzle.tiles[i]));
+            }
+        });
+
+
 
 
         
@@ -522,6 +529,9 @@ Array.prototype.remove = function(start, end) {
 
                 return errors;
             }
-            console.log(this.tiles);
+            for (i = 0 ; i< this.tiles.length; i++){
+                console.log(this.tiles[i]);
+            }
+            
         }
 

@@ -22,17 +22,22 @@ UploadModel::upload();
 	</ul>
 	<div class="intro">
 		<p>Choose your favourite picture and let us puzzle it for you!</p><br>
-		<span>*only .png and .jpg formats accepted</span>
+		<span>*only images not bigger than 300Kb</span>
 	</div>
+	<button id = "change">Change upload type.</button>
 	<form method="post" enctype="multipart/form-data">
 		<div  class="upload-form">
-	  		<img alt="logo" src="./images/search.jpg">
-	  		<label for="pic">Browse image from your computer...
+			<img alt="logo" src="./images/search.jpg">
+	  		<label id = "labelpic" for="pic">Browse image from your computer...
 	  			<input type="file" name="pic" id = "pic" accept="image/*">
 	  		</label>
+			<label style = "display:none" id = "labelurl" for="pic">Enter image URL...
+	  			<input type="url" name="url" id = "url">
+	  		</label>
 	  		<img alt="logo" src="./images/pen.jpg">
-	  			<input type="text" name="picName" id= "picName" placeholder="Insert new puzzle name...">
-	  		<input type="submit" name="submit">
+	  			<input type="text" name="picName" id= "picName" placeholder="Insert new puzzle name..." require>
+	  		<input type = "submit" id = "submitpic" name ="submitpic">
+			<input style = "display:none" type = "submit" id = "submiturl" name = "submiturl"> 
 	  	</div>
 	  	<div>
 	  	<img id="animated-pic" alt="logo" src="./images/image.png">
@@ -42,6 +47,30 @@ UploadModel::upload();
 </body>
 
 <script>
+
+
+document.getElementById("change").addEventListener("click",function (){
+        var labelFile = document.getElementById("labelpic");
+        var labelUrl = document.getElementById("labelurl");
+        var submitFile = document.getElementById("submitpic");
+		var submitUrl = document.getElementById("submiturl");
+		
+        if(labelUrl.style.display === "none"){
+            labelFile.style.display = "none";
+            submitFile.style.display = "none";
+            labelUrl.style.display = "table";
+            submitUrl.style.display = "inline-block";
+        }else{
+            if(labelFile.style.display === "none"){
+                labelFile.style.display = "table";
+                submitFile.style.display = "inline-block";
+                labelUrl.style.display = "none";
+                submitUrl.style.display = "none";
+            }
+        }
+    });
+
+
 var profilePic = document.getElementById('pic'); /* finds the input */
 
 function changeLabelText() {
@@ -55,6 +84,9 @@ function changeLabelText() {
 }
 
 profilePic.addEventListener('change',changeLabelText,false); /* runs the function whenever the filename in the input is changed */
+
+
+
 </script>
 
 </html>

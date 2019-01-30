@@ -5,7 +5,6 @@
 <title>jigr.</title>
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/playground.css">
-<script src="./script/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="./script/paper.js" type="text/javascript"></script>
 <script src="./script/playground.js" type="text/paperscript" canvas="canvas"></script>
 </head>
@@ -21,7 +20,7 @@
 	<div class="menu">
 	 	<button id = "preview">Preview image</button>
 	 	<button id = "reset">Reset</button>
-	 	<button>Save & Resume later</button>
+	 	<button id = "save">Save & Resume later</button>
  	</div>
     <div class="item main">
 		<canvas id="canvas" class="canvas" resize></canvas>

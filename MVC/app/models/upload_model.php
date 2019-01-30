@@ -3,7 +3,8 @@
 class UploadModel{
 
         public function upload(){
-                if(isset($_POST["submit"])) {
+                require_once '../app/core/DB.php';
+                if(isset($_POST["submitpic"])) {
                         ob_end_clean();
                         $target_dir = "./images/";
                         $target_file = $target_dir . basename($_FILES["pic"]["name"]);
@@ -23,7 +24,7 @@ class UploadModel{
                                         $uploadOk = 0;
                                 }
                                 // Check file size
-                                if ($_FILES["pic"]["size"] > 500000) {
+                                if ($_FILES["pic"]["size"] > 300000) {
                                         echo '<script>alert("Sorry, your file is too large.");</script>';
                                         $uploadOk = 0;
                                 }
@@ -39,7 +40,6 @@ class UploadModel{
                                 // if everything is ok, try to upload file
                                 } else {
                                         if (move_uploaded_file($_FILES["pic"]["tmp_name"], $target_file)) {
-                                                require_once '../app/core/DB.php';
                                                 $database = DB::getConnection();
                                                 $sql = "INSERT INTO images (image_name, name) VALUES ('".$_POST["picName"]."', '".basename($_FILES["pic"]["name"])."')";
                                                 if ($database->query($sql) === TRUE) {
@@ -53,6 +53,38 @@ class UploadModel{
                                         }
                                 }
                 }
+                else{
+                        if(isset($_POST["submiturl"])){
+                                $image = UploadModel::randomString();
+                                if(copy($_POST['url'], './images/'.$image.'.png')){
+                                        if(filesize('./images/'.$image.'.png') > 300000){
+                                                echo '<script>alert("Sorry, your file is too large.");</script>';
+                                                unlink('./images/'.$image.'.png');
+                                        }
+                                        else{
+                                                $database = DB::getConnection();
+                                                $sql = "INSERT INTO images (image_name, name) VALUES ('".$_POST["picName"]."', '".$image.".png')";
+                                                if ($database->query($sql) === TRUE) {
+                                                        echo '<script>alert("The file '. ''.$image.'.png'. ' has been uploaded.");</script>';
+                                                }
+                                                $database->close();
+                                        }
+                                }else{
+                                        echo '<script>alert("Try diffrent URL.");</script>';
+                                }
+                        }
+                }
+        }
+
+
+        private function randomString(){
+                $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                $string = '';
+                $max = strlen($characters) - 1;
+                for ($i = 0; $i < 15; $i++) {
+                        $string .= $characters[mt_rand(0, $max)];
+                }
+                return $string;
         }
 
 }
