@@ -24,7 +24,7 @@ UploadModel::upload();
 		<p>Choose your favourite picture and let us puzzle it for you!</p><br>
 		<span>*only images not bigger than 300Kb</span>
 	</div>
-	<button id = "change">Change upload type.</button>
+	<button id = "change" style = "margin-left:40%; margin-right:40%; width: 20%;">Change upload type.</button>
 	<form method="post" enctype="multipart/form-data">
 		<div  class="upload-form">
 			<img alt="logo" src="./images/search.jpg">
@@ -57,13 +57,15 @@ document.getElementById("change").addEventListener("click",function (){
 		
         if(labelUrl.style.display === "none"){
             labelFile.style.display = "none";
-            submitFile.style.display = "none";
+			submitFile.style.display = "none";
+			document.getElementById("pic").disabled = true;
             labelUrl.style.display = "table";
             submitUrl.style.display = "inline-block";
         }else{
             if(labelFile.style.display === "none"){
                 labelFile.style.display = "table";
-                submitFile.style.display = "inline-block";
+				submitFile.style.display = "inline-block";
+				document.getElementById("pic").disabled = false;
                 labelUrl.style.display = "none";
                 submitUrl.style.display = "none";
             }
